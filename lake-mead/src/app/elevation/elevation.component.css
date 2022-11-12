@@ -1,21 +1,22 @@
 .mountains{
-    width: 80%;
-    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mountain_front{
     position:absolute;
     left: 0;
-    height: inherit;
-    width: inherit;
+    height: 80%;
+    width: 80%;
     padding-left: 10%;
 }
 
 .mountain_background{
     position: absolute;
     display: inline;
-    width: inherit;
-    height: inherit;
+    width: 80%;
+    height: 80%;
     padding-left: 10%;
 }
 
@@ -27,4 +28,8 @@
     height: 100%;
     display: table;
     transition: background 0.3s cubic-bezier(0.6, 0.4, 0, 1);
+}
+
+.preview-container{
+
 }
