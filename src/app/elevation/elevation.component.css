@@ -1,0 +1,30 @@
+.mountains{
+    width: 80%;
+    height: 80%;
+}
+
+.mountain_front{
+    position:absolute;
+    left: 0;
+    height: inherit;
+    width: inherit;
+    padding-left: 10%;
+}
+
+.mountain_background{
+    position: absolute;
+    display: inline;
+    width: inherit;
+    height: inherit;
+    padding-left: 10%;
+}
+
+.preview{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: table;
+    transition: background 0.3s cubic-bezier(0.6, 0.4, 0, 1);
+}
