@@ -1,6 +1,7 @@
 .mountains{
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 .mountain_front{
@@ -8,7 +9,6 @@
     left: 0;
     height: inherit;
     width: inherit;
-    padding-left: 10%;
 }
 
 .mountain_background{
@@ -17,15 +17,10 @@
     width: inherit;
     height: inherit;
     padding-left: 10%;
-    bottom: 0;
+    bottom: 0px;
+    right: 0px;
 }
 
 .water-level{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: table;
-    transition: background 0.3s cubic-bezier(0.6, 0.4, 0, 1);
+    
 }
