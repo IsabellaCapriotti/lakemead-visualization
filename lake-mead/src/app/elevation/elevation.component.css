@@ -3,6 +3,9 @@
     height: 100%;
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mountain_front{
@@ -16,8 +19,8 @@
 .mountain_background{
     position: absolute;
     display: inline;
-    width: inherit;
-    height: inherit;
+    width: 80%;
+    height: 80%;
     padding-left: 10%;
     bottom: 0;
 }
