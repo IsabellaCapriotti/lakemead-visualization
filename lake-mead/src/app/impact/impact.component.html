@@ -3,6 +3,7 @@
         <ul class="options-list">
             <li *ngFor="let option of conservationMap.keys()">
                 <mat-checkbox (change)="updateWaterHeightConservation($event)">{{option}}</mat-checkbox>
+                <p *ngIf="conservationMap.get(option)?.checked">{{conservationMap.get(option)?.additionalDetails}}</p>
             </li>
         </ul>
     </mat-drawer>
@@ -10,13 +11,18 @@
 
 <mat-drawer-container class="sidenav-container" autosize>
     <mat-drawer #consumption_drawer class="sidenav-content" mode="side">
-        Consumption
+        <ul class="options-list">
+            <li *ngFor="let option of consumptionMap.keys()">
+                <mat-checkbox (change)="updateWaterHeightConsumption($event)">{{option}}</mat-checkbox>
+                <p *ngIf="consumptionMap.get(option)?.checked">{{consumptionMap.get(option)?.additionalDetails}}</p>
+            </li>
+        </ul>
     </mat-drawer>
 </mat-drawer-container>
 
 <div class="sidenav-btns-container">
-    <button class="expand-sidenav-btn" (click)="conservation_drawer.toggle()">Show conservation options</button>
-    <button class="expand-sidenav-btn" (click)="consumption_drawer.toggle()">Show consumption options</button>
+    <button class="expand-sidenav-btn" (click)="conservation_drawer.toggle(); consumption_drawer.close();">Show conservation options</button>
+    <button class="expand-sidenav-btn" (click)="consumption_drawer.toggle(); conservation_drawer.close()">Show consumption options</button>
 </div>
 <div class="mountains">
     <img class="mountain_background" src="/assets/mountain_background.png">
