@@ -109,3 +109,10 @@
     cursor: pointer;
 }
 
+/* Conservation/consumption options */
+.options-list{
+    list-style-type: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
