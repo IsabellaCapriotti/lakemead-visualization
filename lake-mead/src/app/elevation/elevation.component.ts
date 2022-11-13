@@ -19,15 +19,18 @@ export class ElevationComponent implements OnInit{
     sliderYearValue : any = 1935;
     minYear : number = 1935;
     maxYear : number = 2022;
+    currElevation : number|undefined = 0;
+    waveHeightStyle : any = "";
 
     constructor(private http : HttpClient){}
 
     ngOnInit(){
         this.readElevationData().subscribe((elevationData : any) => {
             this.elevationData = elevationData.data;
-            console.log(this.elevationData);
             this.aggregateElevationDataByYear();
+            this.calculateElevationForYear();
         });
+        this.calculateElevationForYear();
     }
 
     readElevationData(){
@@ -65,5 +68,17 @@ export class ElevationComponent implements OnInit{
 
         console.log('got aggregated data');
         console.log(this.elevationDataByYearAveraged);
+    }
+
+    calculateElevationForYear(){
+        // >= 1200 ft: almost full
+        // 1170-1200: 60%
+        // 1125: 40%, drought
+        // 1075: 30%, shortage 1
+        // 1050: 28%, shortage 2
+        // 1025: 15%, shortage 3
+        // 1000: 10%, power generation limit
+        this.currElevation = 1200;//this.elevationDataByYearAveraged.get(this.sliderYearValue);
+        this.waveHeightStyle = "90vh"; 
     }
 }
