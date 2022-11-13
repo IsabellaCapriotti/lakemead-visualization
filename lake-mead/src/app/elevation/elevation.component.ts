@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'elevation',
@@ -32,7 +33,7 @@ export class ElevationComponent implements OnInit{
     isScreen1Visible : boolean = true;
     isScreen2Visible : boolean = false;
 
-    constructor(private http : HttpClient){}
+    constructor(private http : HttpClient, private router : Router ){}
 
     ngOnInit(){
         this.readElevationData().subscribe((elevationData : any) => {
@@ -172,6 +173,9 @@ export class ElevationComponent implements OnInit{
         this.isScreen2Visible = true;
         this.toggle1 = !this.toggle1;
         this.toggle2 = this.toggle2;
+    }
 
+    navigateToImpactPage(){
+        this.router.navigate(["/impact"]);
     }
 }

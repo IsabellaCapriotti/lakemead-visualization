@@ -11,11 +11,13 @@ import { MatSliderModule } from '@angular/material/slider';
 
 /* Internal components */
 import { ElevationComponent } from './elevation/elevation.component';
+import { ImpactComponent } from './impact/impact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ElevationComponent
+    ElevationComponent,
+    ImpactComponent
   ],
   imports: [
     BrowserModule,
