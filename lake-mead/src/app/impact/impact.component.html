@@ -1,4 +1,19 @@
+<mat-drawer-container class="sidenav-container" autosize>
+    <mat-drawer #conservation_drawer class="sidenav-content" mode="side">
+        Conservation
+    </mat-drawer>
+</mat-drawer-container>
 
+<mat-drawer-container class="sidenav-container" autosize>
+    <mat-drawer #consumption_drawer class="sidenav-content" mode="side">
+        Consumption
+    </mat-drawer>
+</mat-drawer-container>
+
+<div class="sidenav-btns-container">
+    <button class="expand-sidenav-btn" (click)="conservation_drawer.toggle()">Show conservation options</button>
+    <button class="expand-sidenav-btn" (click)="consumption_drawer.toggle()">Show consumption options</button>
+</div>
 <div class="mountains">
     <img class="mountain_background" src="/assets/mountain_background.png">
     <!--Waves-->

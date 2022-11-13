@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 /* Angular Material imports */ 
 import { MatSliderModule } from '@angular/material/slider';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 /* Internal components */
 import { ElevationComponent } from './elevation/elevation.component';
@@ -24,7 +25,8 @@ import { ImpactComponent } from './impact/impact.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

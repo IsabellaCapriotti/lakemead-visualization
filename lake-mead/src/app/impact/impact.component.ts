@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class ImpactComponent{
 
     waveHeightStyle : string = "20vh";
-    
+    sideNavExpanded : boolean = true; 
+    showFiller : boolean = false;
 }
 
