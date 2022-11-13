@@ -1,5 +1,3 @@
-
-
 <div class="mountains-container">
     <button *ngIf="!isModalVisible" (click)="enterModal()" class="info-btn no-border-btn">
         <span class="material-symbols-outlined">
@@ -32,17 +30,18 @@
         <!--Waves-->
         <div>
             <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"
-            [ngStyle]="{'height': waveHeightStyle}">
-            <defs>
-            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-            </defs>
-            <g class="parallax">
-            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(145, 166, 204,0.7" />
-            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(70, 115, 143,0.5)" />
-            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(16, 52, 115,0.3)" />
-            <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(31, 56, 102, .6)" />
-            </g>
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"
+                [ngStyle]="{'height': waveHeightStyle}">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(145, 166, 204,0.7" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(70, 115, 143,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(16, 52, 115,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(31, 56, 102, .6)" />
+                </g>
             </svg>
         </div>
         <img class="mountain_front" src="/assets/mountain_front.png">
@@ -56,28 +55,86 @@
 
     <div *ngIf="isModalVisible" class="dim-screen">
 
-        <div class="preview-container">
+        <div class="preview-container" style="background-image: url({{imagePath}});">
+            <!--[ngClass]="{'first': true, 'second': false, 'third': true, 'forth':false}">-->
             <button type="button" (click)="exitModal()" class="exitBtn no-border-btn">
                 <span class="material-symbols-outlined">
                     close
                 </span>
             </button>
-            <div *ngIf="isScreen1Visible" class="screen1">
-                <h3>This is why lakemead is important</h3>
+            <div *ngIf="isScreen1Visible" class="screen1" id="modalScreen" style="font-size:calc( 1.1vw + 0.75vh)">
+                <h3>Lake Mead: Where Does The Water Come From?</h3>
+                <hr>
+                <p>
+                    Las Vegas and Southern Nevadan residents get 90% of their water
+                    from Lake Mead and ground water. <br>
+                    Where exactly does the water come from before it gets to Las Vegan homes?
+                    <br>
+                    snowmelt in the Rocky Mountains => Colorado River => Lake Mead
+                    <br>
+                    We are no the only ones using the Colorado River as a resource
+
+                </p>
             </div>
-            <div *ngIf="isScreen2Visible" class="screen1">
-                <h3>What is happening</h3>
+            <div *ngIf="isScreen2Visible" class="screen1" id="modalScreen" style="font-size:calc( 0.8vw + 0.7vh)">
+                <h3>What is Happening To Lake Mead and Why</h3>
+                <hr>
+                <p>
+                    The Colorado River is currently experiencing a drought. This is due <tbody>
+                        climate change and the fact that we are using more water than the Colorado river can supply.
+                        <br>
+                        When Arizona, California, Colorado, Nevada, New Mexico, Utah, Wyoming, and Mexico
+                        all rely on this river, it is important that we protect it.
+                        <br>
+                        What is being done:
+                        <br>
+                        The federal government announced a two tier water reduction plan in August of 2022.
+                        This detailed Lake Mead's water intake to be reduced to 25,000 acre-feet from 300,000 acre-feet
+                        usage.
+                        That is about 81 billion gallons of water.
+
+                </p>
             </div>
-            
+            <div *ngIf="isScreen3Visible" class="screen3" id="modalScreen" style="font-size:calc( 1.23vw + 0.7vh)">
+                <h3>How Does This Affect Las Vegas?</h3>
+                <hr>
+                <p>
+                    Lake Mead does not only supply drinking water. It also supplies
+                    hydropower, recreation, fish, water to wildlife habitat, and so much more.
+
+                    <br>
+                    If the reservoir dips below 895 feet, this will reach what is called the
+                    "dead-pool" level where it will not flow downstream from the dam.
+                    This is about 150 feet lower than where it is now.
+                </p>
+            </div>
+            <div *ngIf="isScreen4Visible" class="screen4" id="modalScreen" style="font-size:calc( 1vw + 0.75vh)">
+
+                <h3>Tutorial: Slider To See Water Level</h3>
+                <hr>
+
+                <p>
+                    With the bar at the top, you will be able to
+                    <br>Click
+                    <br>Drag
+                    <br>Drop
+                    <br>through the years to see the flow of water at Lake Mead.
+
+                    <br> You will see in the more current years that there is a white band at the bottom.
+                    This is result of the water drying up and leaving mineral deposits behind.
+                </p>
+            </div>
+
+
             <table class="caroBtnTable">
                 <tr>
                     <td><button type="button" (click)="goToScreen1()" class="caroBtn"></button></td>
                     <td><button type="button" (click)="goToScreen2()" class="caroBtn"></button></td>
-    
+                    <td><button type="button" (click)="goToScreen3()" class="caroBtn"></button></td>
+                    <td><button type="button" (click)="goToScreen4()" class="caroBtn"></button></td>
                 </tr>
             </table>
             <!--table of button carusole-->
         </div>
     </div>
 </div>
-
