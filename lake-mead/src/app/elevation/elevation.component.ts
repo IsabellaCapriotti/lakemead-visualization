@@ -139,11 +139,6 @@ export class ElevationComponent implements OnInit{
         else if(this.currElevation != null && this.currElevation < 1125){
             this.indicatorText = "Drought";
         }
-
-
-        
-
-
     }
 
     interpolateElevation(elev : any){

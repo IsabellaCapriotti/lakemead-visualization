@@ -11,25 +11,33 @@ export class ImpactComponent{
     waveHeightStyle : string = "";
     currWaveHeight : any = 40;
 
+    isModalVisible : boolean = true;
+
     /* Conservation and consumption details */ 
     conservationDetail1 : IConservationDetails = {waterEffect: 5, additionalDetails: 'The Water Authority identifies property owners who violate water regulations and fines them $80, with the fine doubling for every subsequent violation.', checked: false};
     conservationDetail2 : IConservationDetails = {waterEffect: 15, additionalDetails: 'Replacing ornamental lawns with water-saving desert landscape saves an average of 3.4 billion gallons annually.', checked: false}
     conservationDetail3 : IConservationDetails = {waterEffect: 10, additionalDetails: 'The Las Vegas Valley Water District projects that this limitation will save 32 million gallons over the next decade.', checked: false}
     conservationDetail4 : IConservationDetails = {waterEffect: 5, additionalDetails: 'Turning off irrigation during extreme rains in August 2022 saved 250 million gallons of water.', checked: false}
+    conservationDetail5 : IConservationDetails = {waterEffect: 5, additionalDetails: '40% of water usage is indoors and nearly 100% of that is reclaimed. This is how the Strip is able to contribute to only using 5% of the community\'s total water supply.', checked: false}
+    conservationDetail6 : IConservationDetails = {waterEffect: 15, additionalDetails: 'In the beginning of Januaray 2022, about 8.1 billion gallons a year will be reduced from Southern Nevada usage.', checked: false}
 
     conservationMap : Map<string, IConservationDetails> = new Map<string, IConservationDetails>([
         ["Impose water penalties on over-consumers", this.conservationDetail1],
         ["Replace grass with desert landscaping", this.conservationDetail2],
         ["Limit residential pools to 600 square feet", this.conservationDetail3],
-        ["Turn off irrigation systems during monsoon weather", this.conservationDetail4]
+        ["Turn off irrigation systems during monsoon weather", this.conservationDetail4],
+        ["Reclamation of indoor water into Lake Mead with high-treatment facility", this.conservationDetail5],
+        ["Drought Contingency plan tier 2 limits the amount of water Southern Nevada can pull", this.conservationDetail6]
     ]);
 
-    consumptionDetail1 : IConservationDetails = {waterEffect: 40, additionalDetails: 'Water demand could exceed supply by an estimated 3.2 million acre-feet, which is more than 1.0 trillion gallons per year.', checked: false};
-    consumptionDetail2 : IConservationDetails = {waterEffect: 20, additionalDetails: '70 percent of single and multi-family water usage is for landscaping.', checked: false};
-
+    consumptionDetail1 : IConservationDetails = {waterEffect: -40, additionalDetails: 'Water demand could exceed supply by an estimated 3.2 million acre-feet, which is more than 1.0 trillion gallons per year.', checked: false};
+    consumptionDetail2 : IConservationDetails = {waterEffect: -20, additionalDetails: '70 percent of single and multi-family water usage is for landscaping.', checked: false};
+    consumptionDetail3 : IConservationDetails = {waterEffect: -40, additionalDetails: 'This decreased the runoff into the Colorado River. Lake Mead is more than three trillion gallons below capacity', checked: false}
+    
     consumptionMap : Map<string, IConservationDetails> = new Map<string, IConservationDetails>([
         ["State population grows to 3.3 million by 2030", this.consumptionDetail1],
-        ["No changes in landscaping habits", this.consumptionDetail2]
+        ["No changes in landscaping habits", this.consumptionDetail2],
+        ["Rocky Mountains having below-average snowfall for several years", this.consumptionDetail3]
     ]);
 
         
@@ -93,6 +101,14 @@ export class ImpactComponent{
         }
 
         this.waveHeightStyle = this.currWaveHeight + "vh";
+    }
+
+    exitModal(){
+        this.isModalVisible = false;
+    }
+
+    enterModal(){
+        this.isModalVisible = true;
     }
 }
 
