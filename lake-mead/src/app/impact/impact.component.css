@@ -188,8 +188,7 @@
 
 .impact-info-modal{
     text-align: center;
-    font-size: calc( 1.2vw + 1vh);
-    overflow: auto;
+    font-size: calc( 1vw + 1vh);
 }
 
 .impact-info-modal h3{
