@@ -1,34 +1,68 @@
 
-<div class="container-outer">
-    <div class="slider-container">
-        <mat-slider [(value)]="sliderYearValue" [max]="maxYear" [min]="minYear" step="1" (input)="calculateElevationForYear()"></mat-slider>
-    
-        <p>{{sliderYearValue}}</p>
-        <p>{{currElevation}}</p>
-    </div>
-</div>
 
-<div class="mountains">
-    <img class="mountain_background" src="/assets/mountain_background.png">
-    <!--Waves-->
-    <div>
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"
-        [ngStyle]="{'height': waveHeightStyle}">
-        <defs>
-        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="parallax">
-        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(145, 166, 204,0.7" />
-        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(70, 115, 143,0.5)" />
-        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(16, 52, 115,0.3)" />
-        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(31, 56, 102, .6)" />
-        </g>
-        </svg>
-    </div>
-    <img class="mountain_front" src="/assets/mountain_front.png">
+<div class="mountains-container">
+    <button *ngIf="!isModalVisible" (click)="enterModal()" class="info-btn no-border-btn">
+        <span class="material-symbols-outlined">
+            info
+        </span>
+    </button>
 
-    <div class="level-indicators">
+    <div class="container-outer">
+        <div class="slider-container">
+            <mat-slider [(value)]="sliderYearValue" [max]="maxYear" [min]="minYear" step="1" (input)="calculateElevationForYear()"></mat-slider>
         
+            <p><span class="data-header">Year:</span>{{sliderYearValue}}</p>
+            <p><span class="data-header">Elevation:</span>{{currElevation}} feet</p>
+        </div>
+    </div>
+
+    <div class="mountains">
+        <img class="mountain_background" src="/assets/mountain_background.png">
+        <!--Waves-->
+        <div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"
+            [ngStyle]="{'height': waveHeightStyle}">
+            <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(145, 166, 204,0.7" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(70, 115, 143,0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(16, 52, 115,0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(31, 56, 102, .6)" />
+            </g>
+            </svg>
+        </div>
+        <img class="mountain_front" src="/assets/mountain_front.png">
+
+        <hr class="level-indicator"/>
+    </div>
+
+    <div *ngIf="isModalVisible" class="dim-screen">
+
+        <div class="preview-container">
+            <button type="button" (click)="exitModal()" class="exitBtn no-border-btn">
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+            </button>
+            <div *ngIf="isScreen1Visible" class="screen1">
+                <h3>This is why lakemead is important</h3>
+            </div>
+            <div *ngIf="isScreen2Visible" class="screen1">
+                <h3>What is happening</h3>
+            </div>
+            
+            <table class="caroBtnTable">
+                <tr>
+                    <td><button type="button" (click)="goToScreen1()" class="caroBtn"></button></td>
+                    <td><button type="button" (click)="goToScreen2()" class="caroBtn"></button></td>
+    
+                </tr>
+            </table>
+            <!--table of button carusole-->
+        </div>
     </div>
 </div>
+

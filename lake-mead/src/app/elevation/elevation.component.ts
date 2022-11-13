@@ -19,8 +19,14 @@ export class ElevationComponent implements OnInit{
     sliderYearValue : any = 1935;
     minYear : number = 1935;
     maxYear : number = 2022;
+    minElevation : number = Infinity;
+    maxElevation : number = -1;
     currElevation : number|undefined = 0;
     waveHeightStyle : any = "";
+
+    isModalVisible : boolean = true;
+    isScreen1Visible : boolean = true;
+    isScreen2Visible : boolean = false;
 
     constructor(private http : HttpClient){}
 
@@ -30,7 +36,6 @@ export class ElevationComponent implements OnInit{
             this.aggregateElevationDataByYear();
             this.calculateElevationForYear();
         });
-        this.calculateElevationForYear();
     }
 
     readElevationData(){
@@ -57,13 +62,22 @@ export class ElevationComponent implements OnInit{
         this.minYear = keysArr[0];
         this.maxYear = keysArr[keysArr.length - 1];
         
-        // Average them together
+        // Average them together, find min and max elevations
+        
         this.elevationDataByYear.forEach((elevations, year) => {
             var sum = 0
             for(var i=0; i < elevations.length; i++){
                 sum += elevations[i];
             }
-            this.elevationDataByYearAveraged.set(year, sum/elevations.length)
+            var avg = sum/elevations.length
+            if(avg < this.minElevation){
+                this.minElevation = avg;
+            }
+            if(avg > this.maxElevation){
+                this.maxElevation = avg;
+            }
+
+            this.elevationDataByYearAveraged.set(year, avg)
         });
 
         console.log('got aggregated data');
@@ -78,7 +92,51 @@ export class ElevationComponent implements OnInit{
         // 1050: 28%, shortage 2
         // 1025: 15%, shortage 3
         // 1000: 10%, power generation limit
-        this.currElevation = 1200;//this.elevationDataByYearAveraged.get(this.sliderYearValue);
-        this.waveHeightStyle = "90vh"; 
+        
+        this.currElevation = this.elevationDataByYearAveraged.get(this.sliderYearValue);
+        console.log('current elevation: ' + this.currElevation);
+        var heightNum = (this.interpolateElevation(this.currElevation) * 100);
+        if(this.currElevation != null && this.currElevation < 1090){
+            heightNum -= 25;
+            if(heightNum < 0){
+                heightNum = 20;
+            }
+        }
+        console.log('interpolated val: ' + heightNum);
+
+        this.waveHeightStyle = heightNum + "vh"; 
+    }
+
+    interpolateElevation(elev : any){
+        const clamp = (a:any, min = 0, max = 1) => Math.min(max, Math.max(min, a));
+        const invlerp = (x:any, y:any, a:any) => clamp((a - x) / (y - x));   
+        
+        return invlerp(this.minElevation, this.maxElevation, elev)
+    }
+
+    exitModal(){
+        this.isModalVisible = false;
+    }
+
+    enterModal(){
+        this.isModalVisible = true;
+    }
+
+    toggle1 = true;
+    toggle2 = true;
+
+    goToScreen1(){
+        this.isScreen1Visible = true;
+        this.isScreen2Visible = false;
+        this.toggle1 = !this.toggle1;
+        this.toggle2 = !this.toggle2;
+    }
+
+    goToScreen2(){
+        this.isScreen1Visible = false;
+        this.isScreen2Visible = true;
+        this.toggle1 = !this.toggle1;
+        this.toggle2 = this.toggle2;
+
     }
 }
