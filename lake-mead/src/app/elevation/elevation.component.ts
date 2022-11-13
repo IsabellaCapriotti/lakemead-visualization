@@ -27,6 +27,9 @@ export class ElevationComponent implements OnInit{
     isModalVisible : boolean = true;
     isScreen1Visible : boolean = true;
     isScreen2Visible : boolean = false;
+    isScreen3Visible : boolean = false;
+    isScreen4Visible : boolean = false;
+    imagePath : string = "/assets/aerial_lake_mead.jpg";
 
     constructor(private http : HttpClient){}
 
@@ -122,21 +125,35 @@ export class ElevationComponent implements OnInit{
         this.isModalVisible = true;
     }
 
-    toggle1 = true;
-    toggle2 = true;
-
     goToScreen1(){
         this.isScreen1Visible = true;
         this.isScreen2Visible = false;
-        this.toggle1 = !this.toggle1;
-        this.toggle2 = !this.toggle2;
+        this.isScreen3Visible = false;
+        this.isScreen4Visible = false;
+        this.imagePath = '/assets/aerial_lake_mead.jpg';
     }
 
     goToScreen2(){
         this.isScreen1Visible = false;
         this.isScreen2Visible = true;
-        this.toggle1 = !this.toggle1;
-        this.toggle2 = this.toggle2;
+        this.isScreen3Visible = false;
+        this.isScreen4Visible = false;
+        this.imagePath = '/assets/drought_lake_mead.jpg';
+    }
 
+    goToScreen3(){
+        this.isScreen1Visible = false;
+        this.isScreen2Visible = false;
+        this.isScreen3Visible = true;
+        this.isScreen4Visible = false;
+        this.imagePath = "assets/water_line_lake_mead.jpg"
+    }
+
+    goToScreen4(){
+        this.isScreen1Visible = false;
+        this.isScreen2Visible = false;
+        this.isScreen3Visible = false;
+        this.isScreen4Visible = true;
+        this.imagePath = "assets/light_blue.jpg"
     }
 }

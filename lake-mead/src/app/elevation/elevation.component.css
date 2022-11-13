@@ -120,12 +120,18 @@ height:30vh;
 
 .preview-container{
     position: absolute;
-    background: white;
     border-radius: 16px;
     width: 50%;
     height: 50%; 
     display: flex;
     flex-flow: column;
+    border-radius: 16px;
+    object-fit: fill; 
+    background-repeat:no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.5);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 22px 22px 0px 22px 
 }
 
 .dim-screen{
@@ -171,8 +177,8 @@ height:30vh;
 }
 
 .caroBtn{
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     background-color: green;
     border-radius: 50%;
     border-color: white;
@@ -183,11 +189,23 @@ height:30vh;
     background-color: grey;
 }
 
-.caroBtnSelected{
-    background-color: black;
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    border-color: white;
-    box-shadow: none;
+#modalScreen{
+    text-align: center;
+    padding: 5px;
+}
+
+hr {
+    background: #000040;
+    border: none;
+    height: 3px;
+}
+
+h3 {
+    color: #241571;
+    font-style: italic;
+}
+
+.data-header{
+    font-size: 20px;
+    font-style: bold;
 }
