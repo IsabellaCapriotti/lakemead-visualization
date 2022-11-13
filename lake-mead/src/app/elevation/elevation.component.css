@@ -108,7 +108,7 @@ height:30vh;
 .slider-lower{
     display: flex;
     flex-flow: row;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 #impact-btn{
