@@ -7,11 +7,21 @@
 
     <div class="container-outer">
         <div class="slider-container">
-            <mat-slider [(value)]="sliderYearValue" [max]="maxYear" [min]="minYear" step="1"
-                (input)="calculateElevationForYear()"></mat-slider>
+            <mat-slider [(value)]="sliderYearValue" [max]="maxYear" [min]="minYear" step="1" (input)="calculateElevationForYear()"></mat-slider>
+            
+            <div class="slider-lower">
+                <div>
+                    <p><span class="data-header">Year:</span>{{sliderYearValue}}</p>
+                    <p><span class="data-header">Elevation:</span>{{currElevation}} feet</p>
+                </div>
+            </div>
+            <div id="impact-btn" (click)="navigateToImpactPage()">
+                <p>What can we do?</p>
+                <span class="material-symbols-outlined" style="text-align: center">
+                    arrow_forward_ios
+                </span>
+            </div>
 
-            <p class="data-header"><span class="data-header">Year: </span>{{sliderYearValue}}</p>
-            <p class="data-header"><span class="data-header">Elevation: </span>{{currElevation}} feet</p>
         </div>
     </div>
 
@@ -36,7 +46,11 @@
         </div>
         <img class="mountain_front" src="/assets/mountain_front.png">
 
-        <hr class="level-indicator" />
+        <div class="indicator-container" *ngIf="isIndicatorVisible"  [ngStyle]="{'bottom': indicatorHeightStyle}">
+            <p class="indicator-text">{{indicatorText}}</p>
+            <hr class="level-indicator"/>
+        </div>
+        
     </div>
 
     <div *ngIf="isModalVisible" class="dim-screen">

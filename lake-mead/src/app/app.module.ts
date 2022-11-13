@@ -8,21 +8,27 @@ import { HttpClientModule } from '@angular/common/http';
 
 /* Angular Material imports */ 
 import { MatSliderModule } from '@angular/material/slider';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 /* Internal components */
 import { ElevationComponent } from './elevation/elevation.component';
+import { ImpactComponent } from './impact/impact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ElevationComponent
+    ElevationComponent,
+    ImpactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSidenavModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

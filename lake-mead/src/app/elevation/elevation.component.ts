@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'elevation',
@@ -24,6 +25,10 @@ export class ElevationComponent implements OnInit{
     currElevation : number|undefined = 0;
     waveHeightStyle : any = "";
 
+    isIndicatorVisible : boolean = false;
+    indicatorText : string = "";
+    indicatorHeightStyle : string = "";
+
     isModalVisible : boolean = true;
     isScreen1Visible : boolean = true;
     isScreen2Visible : boolean = false;
@@ -31,7 +36,7 @@ export class ElevationComponent implements OnInit{
     isScreen4Visible : boolean = false;
     imagePath : string = "/assets/aerial_lake_mead.jpg";
 
-    constructor(private http : HttpClient){}
+    constructor(private http : HttpClient, private router : Router ){}
 
     ngOnInit(){
         this.readElevationData().subscribe((elevationData : any) => {
@@ -96,8 +101,11 @@ export class ElevationComponent implements OnInit{
         // 1025: 15%, shortage 3
         // 1000: 10%, power generation limit
         
+        // Get elevation for current year 
         this.currElevation = this.elevationDataByYearAveraged.get(this.sliderYearValue);
         console.log('current elevation: ' + this.currElevation);
+
+        // Get water height corresponding to elevation
         var heightNum = (this.interpolateElevation(this.currElevation) * 100);
         if(this.currElevation != null && this.currElevation < 1090){
             heightNum -= 25;
@@ -105,9 +113,37 @@ export class ElevationComponent implements OnInit{
                 heightNum = 20;
             }
         }
-        console.log('interpolated val: ' + heightNum);
-
         this.waveHeightStyle = heightNum + "vh"; 
+
+        // Show indicator levels
+        if(this.currElevation != null && this.currElevation < 1125){
+            this.isIndicatorVisible = true;
+            this.indicatorHeightStyle = heightNum + "vh";
+        }
+        else{
+            this.isIndicatorVisible = false;
+        }
+
+        if(this.currElevation != null && this.currElevation < 950){
+            this.indicatorText = "Can no longer generate power";
+        }
+        else if(this.currElevation != null && this.currElevation < 1025){
+            this.indicatorText = "Shortage Condition III";
+        }
+        else if(this.currElevation != null && this.currElevation < 1050){
+            this.indicatorText = "Shortage Condition II";
+        }
+        else if(this.currElevation != null && this.currElevation < 1075){
+            this.indicatorText = "Shortage Condition I";
+        }
+        else if(this.currElevation != null && this.currElevation < 1125){
+            this.indicatorText = "Drought";
+        }
+
+
+        
+
+
     }
 
     interpolateElevation(elev : any){
@@ -149,11 +185,15 @@ export class ElevationComponent implements OnInit{
         this.imagePath = "assets/water_line_lake_mead.jpg"
     }
 
+    
     goToScreen4(){
         this.isScreen1Visible = false;
         this.isScreen2Visible = false;
         this.isScreen3Visible = false;
         this.isScreen4Visible = true;
         this.imagePath = "assets/light_blue.jpg"
+    }
+    navigateToImpactPage(){
+        this.router.navigate(["/impact"]);
     }
 }
