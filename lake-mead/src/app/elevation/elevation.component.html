@@ -70,9 +70,9 @@
                     from Lake Mead and ground water. <br>
                     Where exactly does the water come from before it gets to Las Vegan homes?
                     <br>
-                    snowmelt in the Rocky Mountains => Colorado River => Lake Mead
+                    Snowmelt in the Rocky Mountains => Colorado River => Lake Mead
                     <br>
-                    We are no the only ones using the Colorado River as a resource
+                    We are not the only ones using the Colorado River as a resource.
 
                 </p>
             </div>
@@ -80,7 +80,7 @@
                 <h3>What is Happening To Lake Mead and Why</h3>
                 <hr>
                 <p>
-                    The Colorado River is currently experiencing a drought. This is due <tbody>
+                    The Colorado River is currently experiencing a drought. This is due to
                         climate change and the fact that we are using more water than the Colorado river can supply.
                         <br>
                         When Arizona, California, Colorado, Nevada, New Mexico, Utah, Wyoming, and Mexico
@@ -92,7 +92,6 @@
                         This detailed Lake Mead's water intake to be reduced to 25,000 acre-feet from 300,000 acre-feet
                         usage.
                         That is about 81 billion gallons of water.
-
                 </p>
             </div>
             <div *ngIf="isScreen3Visible" class="screen3" id="modalScreen" style="font-size:calc( 1.23vw + 0.7vh)">
@@ -124,7 +123,34 @@
                     This is result of the water drying up and leaving mineral deposits behind.
                 </p>
             </div>
+            <div *ngIf="isScreen5Visible" class="screen5" id="modalScreen" style="font-size:calc( 0.8vw + 0.7vh)">
 
+                <h3>Sources</h3>
+                <hr>
+
+                <ul>
+                    <li>
+                        <a href="https://www.epa.gov/sites/default/files/2017-02/documents/ws-ourwater-nevada-state-fact-sheet.pdf">https://www.epa.gov/sites/default/files/2017-02/documents/ws-ourwater-nevada-state-fact-sheet.pdf</a>
+                    </li>
+                    <li>
+                        <a href="https://www.lvvwd.com/conservation/measures/index.html">https://www.lvvwd.com/conservation/measures/index.html</a>
+                    </li>
+                    <li>
+                        <a href="https://www.usbr.gov/lc/region/g4000/hourly/mead-elv.html">https://www.usbr.gov/lc/region/g4000/hourly/mead-elv.html</a>
+                    </li>
+                    <li>
+                        <a href="https://www.snwa.com/water-resources/drought-and-shortage/index.html">https://www.snwa.com/water-resources/drought-and-shortage/index.html</a>
+                    </li>
+                    <li><a href="https://www.fox5vegas.com/2022/09/05/heres-what-las-vegas-is-doing-conserve-water/">https://www.fox5vegas.com/2022/09/05/heres-what-las-vegas-is-doing-conserve-water/</a>
+                    </li>
+                    <li><a href="https://www.watereducation.org/western-water/climate-change-turns-heat-las-vegas-water-managers-try-wring-new-savings-stretch">https://www.watereducation.org/western-water/climate-change-turns-heat-las-vegas-water-managers-try-wring-new-savings-stretch</a>
+                    </li>
+                    <li><a href="https://www.reviewjournal.com/news/politics-and-government/clark-county/new-golf-courses-cant-use-colorado-river-water-las-vegas-board-says-2470511/">https://www.reviewjournal.com/news/politics-and-government/clark-county/new-golf-courses-cant-use-colorado-river-water-las-vegas-board-says-2470511/</a>
+                    </li>
+                    <li><a href="https://www.usbr.gov/uc/water/hydrodata/reservoir_data/921/json/49.json">https://www.usbr.gov/uc/water/hydrodata/reservoir_data/921/json/49.json</a>
+                    </li>
+                </ul>
+            </div>
 
             <table class="caroBtnTable">
                 <tr>
@@ -132,6 +158,7 @@
                     <td><button type="button" (click)="goToScreen2()" class="caroBtn"></button></td>
                     <td><button type="button" (click)="goToScreen3()" class="caroBtn"></button></td>
                     <td><button type="button" (click)="goToScreen4()" class="caroBtn"></button></td>
+                    <td><button type="button" (click)="goToScreen5()" class="caroBtn"></button></td>
                 </tr>
             </table>
             <!--table of button carusole-->

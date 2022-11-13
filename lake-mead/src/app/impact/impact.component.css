@@ -117,8 +117,10 @@
 }
 
 .list-header{
+    font-family: 'DM Sans', sans-serif;
     font-weight: bold;
     text-align: center;
+    font-size: 1.8rem;
 }
 
 .list-hr{
@@ -133,8 +135,12 @@
     list-style-type: none;
     font-family: 'DM Sans', sans-serif;
     font-weight: 400;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     padding:0px;
+}
+
+.options-list li{
+    margin-bottom: 9px;
 }
 
 .mat-drawer-container{
@@ -164,7 +170,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
-    z-index: 99;
+    z-index: 101;
     position: absolute;
     left:0px;
     top:0px;
@@ -180,9 +186,24 @@
     top: 2%;
 }
 
-.imapct-info-modal{
+.impact-info-modal{
     text-align: center;
     font-size: calc( 1.2vw + 1vh);
+    overflow: auto;
+}
+
+.impact-info-modal h3{
+    font-family: 'DM Sans', sans-serif;
+    color: #241571;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.impact-info-modal p{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
 }
 
 /* Info Btn */
@@ -190,6 +211,7 @@
     position: absolute;
     top: 2%;
     left: 2%;
+    z-index: 101;
 }
 
 .info-btn span:hover, .exitBtn span:hover{

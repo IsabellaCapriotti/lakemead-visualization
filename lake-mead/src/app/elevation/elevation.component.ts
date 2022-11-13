@@ -34,6 +34,7 @@ export class ElevationComponent implements OnInit{
     isScreen2Visible : boolean = false;
     isScreen3Visible : boolean = false;
     isScreen4Visible : boolean = false;
+    isScreen5Visible : boolean = false;
     imagePath : string = "/assets/aerial_lake_mead.jpg";
 
     constructor(private http : HttpClient, private router : Router ){}
@@ -161,6 +162,7 @@ export class ElevationComponent implements OnInit{
         this.isScreen2Visible = false;
         this.isScreen3Visible = false;
         this.isScreen4Visible = false;
+        this.isScreen5Visible = false;
         this.imagePath = '/assets/aerial_lake_mead.jpg';
     }
 
@@ -169,6 +171,7 @@ export class ElevationComponent implements OnInit{
         this.isScreen2Visible = true;
         this.isScreen3Visible = false;
         this.isScreen4Visible = false;
+        this.isScreen5Visible = false;
         this.imagePath = '/assets/drought_lake_mead.jpg';
     }
 
@@ -177,17 +180,28 @@ export class ElevationComponent implements OnInit{
         this.isScreen2Visible = false;
         this.isScreen3Visible = true;
         this.isScreen4Visible = false;
+        this.isScreen5Visible = false;
         this.imagePath = "assets/water_line_lake_mead.jpg"
     }
 
-    
     goToScreen4(){
         this.isScreen1Visible = false;
         this.isScreen2Visible = false;
         this.isScreen3Visible = false;
         this.isScreen4Visible = true;
+        this.isScreen5Visible = false;
         this.imagePath = "assets/light_blue.jpg"
     }
+
+    goToScreen5(){
+        this.isScreen1Visible = false;
+        this.isScreen2Visible = false;
+        this.isScreen3Visible = false;
+        this.isScreen4Visible = false;
+        this.isScreen5Visible = true;
+        this.imagePath = "assets/light_blue.jpg"
+    }
+
     navigateToImpactPage(){
         this.router.navigate(["/impact"]);
     }

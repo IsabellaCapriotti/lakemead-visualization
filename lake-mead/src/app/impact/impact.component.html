@@ -34,13 +34,14 @@
     <button class="expand-sidenav-btn" (click)="conservation_drawer.toggle(); consumption_drawer.close();">Show conservation options</button>
     <button class="expand-sidenav-btn" (click)="consumption_drawer.toggle(); conservation_drawer.close()">Show consumption options</button>
 </div>
-<div class="mountains">
-    <button type="button" *ngIf="!isModalVisible" (click)="enterModal()" class="info-btn no-border-btn">
-        <span class="material-symbols-outlined">
-            info
-        </span>
-    </button>
 
+<button type="button" *ngIf="!isModalVisible" (click)="enterModal()" class="info-btn no-border-btn">
+    <span class="material-symbols-outlined" style="color: white; transform: scale(1.2);">
+        info
+    </span>
+</button>
+
+<div class="mountains">
     <img class="mountain_background" src="/assets/mountain_background.png">
     <!--Waves-->
     <div>
@@ -60,11 +61,6 @@
     </div>
     <img class="mountain_front" src="/assets/mountain_front.png">
 
-    <!-- <div class="indicator-container" *ngIf="isIndicatorVisible"  [ngStyle]="{'bottom': indicatorHeightStyle}">
-        <p class="indicator-text">{{indicatorText}}</p>
-        <hr class="level-indicator"/>
-    </div> -->
-
     <div *ngIf="isModalVisible" class="dim-screen">
         <div class="preview-container">
             <button type="button" (click)="exitModal()" class="exitBtn no-border-btn">
@@ -72,17 +68,18 @@
                     close
                 </span>
             </button>
-            <div class="imapct-info-modal">
+            <div class="impact-info-modal">
                 <h3 style="margin-top:22px">Explore Impacts On Lake Mead Water Levels And What We Can Do</h3>
                 <p>
-                    - The two buttons to the right of the screen show a list of different
-                    conservation efforts and consumption of water usage that effect Las Vegas
+                    The two buttons to the right of the screen show a list of factors contributing to 
+                    water consumption in Las Vegas and conservation efforts that can reduce it.
                     <br>
                     
                 </p>
                 <p>
-                    - Click through the checkboxes to explore how the drought effects the water level
-                    and what conservation efforts we can make as a community
+                    Click through the checkboxes to explore how the drought affects the water level
+                    and what conservation efforts we can make as a community to build a resilient, 
+                    environmentally friendly desert home for all Las Vegas residents.
                 </p>
             </div>
         </div>
