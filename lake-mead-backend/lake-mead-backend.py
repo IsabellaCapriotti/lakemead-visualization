@@ -9,3 +9,6 @@ CORS(app)
 def get_elevation_data():
     res = urllib.request.urlopen("https://www.usbr.gov/uc/water/hydrodata/reservoir_data/921/json/49.json")
     return res 
+
+if __name__ == '__main__':
+    app.run()
