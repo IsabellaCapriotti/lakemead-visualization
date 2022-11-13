@@ -15,11 +15,13 @@ export class ImpactComponent{
     conservationDetail1 : IConservationDetails = {waterEffect: 5, additionalDetails: 'The Water Authority identifies property owners who violate water regulations and fines them $80, with the fine doubling for every subsequent violation.', checked: false};
     conservationDetail2 : IConservationDetails = {waterEffect: 15, additionalDetails: 'Replacing ornamental lawns with water-saving desert landscape saves an average of 3.4 billion gallons annually.', checked: false}
     conservationDetail3 : IConservationDetails = {waterEffect: 10, additionalDetails: 'The Las Vegas Valley Water District projects that this limitation will save 32 million gallons over the next decade.', checked: false}
+    conservationDetail4 : IConservationDetails = {waterEffect: 5, additionalDetails: 'Turning off irrigation during extreme rains in August 2022 saved 250 million gallons of water.', checked: false}
 
     conservationMap : Map<string, IConservationDetails> = new Map<string, IConservationDetails>([
         ["Impose water penalties on over-consumers", this.conservationDetail1],
         ["Replace grass with desert landscaping", this.conservationDetail2],
         ["Limit residential pools to 600 square feet", this.conservationDetail3],
+        ["Turn off irrigation systems during monsoon weather", this.conservationDetail4]
     ]);
 
     consumptionDetail1 : IConservationDetails = {waterEffect: 40, additionalDetails: 'Water demand could exceed supply by an estimated 3.2 million acre-feet, which is more than 1.0 trillion gallons per year.', checked: false};
