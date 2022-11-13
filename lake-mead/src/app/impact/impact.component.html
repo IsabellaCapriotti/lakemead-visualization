@@ -1,6 +1,12 @@
+
+
 <mat-drawer-container class="sidenav-container" autosize>
     <mat-drawer #conservation_drawer class="sidenav-content" mode="side">
         <ul class="options-list">
+            <li class="list-header">
+                Conservation
+                <hr class="list-hr">
+            </li>
             <li *ngFor="let option of conservationMap.keys()">
                 <mat-checkbox (change)="updateWaterHeightConservation($event)">{{option}}</mat-checkbox>
                 <p *ngIf="conservationMap.get(option)?.checked">{{conservationMap.get(option)?.additionalDetails}}</p>
@@ -9,9 +15,13 @@
     </mat-drawer>
 </mat-drawer-container>
 
-<mat-drawer-container class="sidenav-container" autosize>
+<mat-drawer-container class="sidenav-container" autosize >
     <mat-drawer #consumption_drawer class="sidenav-content" mode="side">
         <ul class="options-list">
+            <li class="list-header">
+                Consumption
+                <hr class="list-hr">
+            </li>
             <li *ngFor="let option of consumptionMap.keys()">
                 <mat-checkbox (change)="updateWaterHeightConsumption($event)">{{option}}</mat-checkbox>
                 <p *ngIf="consumptionMap.get(option)?.checked">{{consumptionMap.get(option)?.additionalDetails}}</p>
@@ -25,6 +35,12 @@
     <button class="expand-sidenav-btn" (click)="consumption_drawer.toggle(); conservation_drawer.close()">Show consumption options</button>
 </div>
 <div class="mountains">
+    <button type="button" *ngIf="!isModalVisible" (click)="enterModal()" class="info-btn no-border-btn">
+        <span class="material-symbols-outlined">
+            info
+        </span>
+    </button>
+
     <img class="mountain_background" src="/assets/mountain_background.png">
     <!--Waves-->
     <div>
@@ -48,5 +64,28 @@
         <p class="indicator-text">{{indicatorText}}</p>
         <hr class="level-indicator"/>
     </div> -->
+
+    <div *ngIf="isModalVisible" class="dim-screen">
+        <div class="preview-container">
+            <button type="button" (click)="exitModal()" class="exitBtn no-border-btn">
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+            </button>
+            <div class="imapct-info-modal">
+                <h3 style="margin-top:22px">Explore Impacts On Lake Mead Water Levels And What We Can Do</h3>
+                <p>
+                    - The two buttons to the right of the screen show a list of different
+                    conservation efforts and consumption of water usage that effect Las Vegas
+                    <br>
+                    
+                </p>
+                <p>
+                    - Click through the checkboxes to explore how the drought effects the water level
+                    and what conservation efforts we can make as a community
+                </p>
+            </div>
+        </div>
+    </div>
     
 </div>

@@ -79,6 +79,13 @@
 
 .sidenav-content{
     min-width: 40vw;
+    padding: 20px;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 25px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .sidenav-btns-container{
@@ -109,10 +116,89 @@
     cursor: pointer;
 }
 
+.list-header{
+    font-weight: bold;
+    text-align: center;
+}
+
+.list-hr{
+    background: black;
+    height: 2px;
+    border: none;
+    margin-bottom: 20px;
+}
+
 /* Conservation/consumption options */
 .options-list{
     list-style-type: none;
     font-family: 'DM Sans', sans-serif;
     font-weight: 400;
     font-size: 1.1rem;
+    padding:0px;
 }
+
+.mat-drawer-container{
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* Modal */
+.preview-container{
+    position: absolute;
+    border-radius: 16px;
+    width: 50%;
+    height: 50%; 
+    display: flex;
+    flex-flow: column;
+    border-radius: 16px;
+    object-fit: fill; 
+    background-repeat:no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.5);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 22px 22px 0px 22px 
+}
+
+.dim-screen{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    position: absolute;
+    left:0px;
+    top:0px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.exitBtn{
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+
+.imapct-info-modal{
+    text-align: center;
+    font-size: calc( 1.2vw + 1vh);
+}
+
+/* Info Btn */
+.info-btn{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+.info-btn span:hover, .exitBtn span:hover{
+    cursor: pointer;
+}
+
+.no-border-btn{
+    border: 0px;
+    outline: 0px; 
+    background: transparent;
+}
+
