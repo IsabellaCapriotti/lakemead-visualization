@@ -170,7 +170,6 @@ height:30vh;
     box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.5);
     font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 22px 22px 0px 22px;
-    overflow: auto;
 }
 
 .dim-screen{
