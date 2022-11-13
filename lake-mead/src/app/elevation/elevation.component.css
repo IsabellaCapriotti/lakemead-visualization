@@ -97,6 +97,7 @@ height:30vh;
     align-self: center;
     font-family: 'DM Sans', sans-serif;
     font-weight: 400;
+    font-size: 1rem;
 }
 
 .slider-container .data-header{
@@ -105,11 +106,22 @@ height:30vh;
 }
 
 /* Water level indicators */
+.indicator-container{
+    position: absolute;
+}
+
 .level-indicator{
     border-top: 1px solid red;
     position: absolute;
-    bottom: 20vh;
     width: 30vw;
+}
+
+.indicator-text{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: red;
+    font-size: 1.2rem;
+    margin-left: 30px;
 }
 
 /* Modal */ 

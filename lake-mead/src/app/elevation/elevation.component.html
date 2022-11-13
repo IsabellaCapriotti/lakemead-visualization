@@ -36,7 +36,11 @@
         </div>
         <img class="mountain_front" src="/assets/mountain_front.png">
 
-        <hr class="level-indicator"/>
+        <div class="indicator-container" *ngIf="isIndicatorVisible"  [ngStyle]="{'bottom': indicatorHeightStyle}">
+            <p class="indicator-text">{{indicatorText}}</p>
+            <hr class="level-indicator"/>
+        </div>
+        
     </div>
 
     <div *ngIf="isModalVisible" class="dim-screen">

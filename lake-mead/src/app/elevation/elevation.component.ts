@@ -24,6 +24,10 @@ export class ElevationComponent implements OnInit{
     currElevation : number|undefined = 0;
     waveHeightStyle : any = "";
 
+    isIndicatorVisible : boolean = false;
+    indicatorText : string = "";
+    indicatorHeightStyle : string = "";
+
     isModalVisible : boolean = true;
     isScreen1Visible : boolean = true;
     isScreen2Visible : boolean = false;
@@ -93,8 +97,11 @@ export class ElevationComponent implements OnInit{
         // 1025: 15%, shortage 3
         // 1000: 10%, power generation limit
         
+        // Get elevation for current year 
         this.currElevation = this.elevationDataByYearAveraged.get(this.sliderYearValue);
         console.log('current elevation: ' + this.currElevation);
+
+        // Get water height corresponding to elevation
         var heightNum = (this.interpolateElevation(this.currElevation) * 100);
         if(this.currElevation != null && this.currElevation < 1090){
             heightNum -= 25;
@@ -102,9 +109,37 @@ export class ElevationComponent implements OnInit{
                 heightNum = 20;
             }
         }
-        console.log('interpolated val: ' + heightNum);
-
         this.waveHeightStyle = heightNum + "vh"; 
+
+        // Show indicator levels
+        if(this.currElevation != null && this.currElevation < 1125){
+            this.isIndicatorVisible = true;
+            this.indicatorHeightStyle = heightNum + "vh";
+        }
+        else{
+            this.isIndicatorVisible = false;
+        }
+
+        if(this.currElevation != null && this.currElevation < 950){
+            this.indicatorText = "Can no longer generate power";
+        }
+        else if(this.currElevation != null && this.currElevation < 1025){
+            this.indicatorText = "Shortage Condition III";
+        }
+        else if(this.currElevation != null && this.currElevation < 1050){
+            this.indicatorText = "Shortage Condition II";
+        }
+        else if(this.currElevation != null && this.currElevation < 1075){
+            this.indicatorText = "Shortage Condition I";
+        }
+        else if(this.currElevation != null && this.currElevation < 1125){
+            this.indicatorText = "Drought";
+        }
+
+
+        
+
+
     }
 
     interpolateElevation(elev : any){
