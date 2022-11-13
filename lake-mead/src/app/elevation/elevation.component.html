@@ -1,10 +1,33 @@
-<mat-slider [(value)]="sliderYearValue" [max]="maxYear" [min]="minYear" step="1"></mat-slider>
+<body>
+    <div *ngIf="isModalVisible" class="dim-screen"></div>
+    <mat-slider [(value)]="sliderYearValue" [max]="maxYear" [min]="minYear" step="1"></mat-slider>
+    <br><button type="button" class="exitBtn"><</button>
 
-<p>{{sliderYearValue}}</p>
-<div class="mountains">
-    <div class="preview-container">
-        <p>aaaaaahhhh</p>
+    <p>{{sliderYearValue}}</p>
+    <div class="mountains">
+        <img class="mountain_background" src="/assets/mountain_background.png">
+        <img class="mountain_front" src="/assets/mountain_front.png">
     </div>
-    <img class="mountain_background" src="/assets/mountain_background.png">
-    <img class="mountain_front" src="/assets/mountain_front.png">
-</div>
+
+    <div *ngIf="isModalVisible" class="preview-screen">
+
+        <div  class="preview-container">
+            <button type="button" (click)="exitModal()" class="exitBtn" style="right:-20px; top: 20px;"><</button>
+            <div *ngIf="isScreen1Visible" class="screen1">
+                <h3>This is why lakemead is important</h3>
+            </div>
+            <div *ngIf="isScreen2Visible" class="screen1">
+                <h3>What is happening</h3>
+            </div>
+            
+            <table class="caroBtnTable">
+                <tr>
+                    <td><button type="button" (click)="goToScreen1()" class="caroBtn"></button></td>
+                    <td><button type="button" (click)="goToScreen2()" class="caroBtn"></button></td>
+
+                </tr>
+            </table>
+            <!--table of button carusole-->
+        </div>
+    </div>
+</body>

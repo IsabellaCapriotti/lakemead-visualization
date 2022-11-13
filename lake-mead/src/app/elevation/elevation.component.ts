@@ -20,6 +20,10 @@ export class ElevationComponent implements OnInit{
     minYear : number = 1935;
     maxYear : number = 2022;
 
+    isModalVisible : boolean = true;
+    isScreen1Visible : boolean = true;
+    isScreen2Visible : boolean = false;
+
     constructor(private http : HttpClient){}
 
     ngOnInit(){
@@ -66,4 +70,27 @@ export class ElevationComponent implements OnInit{
         console.log('got aggregated data');
         console.log(this.elevationDataByYearAveraged);
     }
+
+    exitModal(){
+        this.isModalVisible = false
+    }
+
+    toggle1 = true;
+    toggle2 = true;
+
+    goToScreen1(){
+        this.isScreen1Visible = true;
+        this.isScreen2Visible = false;
+        this.toggle1 = !this.toggle1;
+        this.toggle2 = !this.toggle2;
+    }
+
+    goToScreen2(){
+        this.isScreen1Visible = false;
+        this.isScreen2Visible = true;
+        this.toggle1 = !this.toggle1;
+        this.toggle2 = this.toggle2;
+
+    }
+
 }
