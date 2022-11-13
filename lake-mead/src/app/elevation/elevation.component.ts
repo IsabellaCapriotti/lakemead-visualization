@@ -102,7 +102,7 @@ export class ElevationComponent implements OnInit{
         // 1000: 10%, power generation limit
         
         // Get elevation for current year 
-        this.currElevation = this.elevationDataByYearAveraged.get(this.sliderYearValue);
+        this.currElevation = parseFloat(this.elevationDataByYearAveraged.get(this.sliderYearValue)?.toFixed(2) ?? "0.0");
         console.log('current elevation: ' + this.currElevation);
 
         // Get water height corresponding to elevation
